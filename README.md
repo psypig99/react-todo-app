@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## UI 구성하기
+1. Todo Template : 화면응ㄹ 가운데에 정렬시켜 주며, 앱 타이틀(일정관리)을 보여줍니다. 
+    children으로 내부 JSX를 props로 받아와서 렌더링해 줍니다.     
+2. TodoInsert : 새로운 항목을 입력하고 추가할 수 있는 컴포넌트임. state를 통해 input의 상태를 관리함.
+3. TodoListItem : 각 할 일 항목에 대한 정보를 보여주는 컴포넌트임. todo 객체를 props로 받아와서 상태에 따라 다른 스타일의 UI를 보여줌.
+4. TodoList : todos 배열을 props로 받아 온 후, 이를 배열 내장 함수 map을 사용해서 여러 개의 TodoListItem 컴포넌트로 변환하여 보여줌.
 
-## Available Scripts
 
-In the project directory, you can run:
+## 컴포넌트 성능 최적화
+### 11.3 느려지는 원인 분석
+1. 자신이 전달받은 props가 변경될 대
+2. 자신의 state가 변경될 때
+3. 부모 컴포넌트가 렌더링 될 때
+4. forceUpdate 함수가 실행될 때
 
-### `yarn start`
+### 11.4 React.memo를 사용하여 컴포넌트 성능 최적화
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 11.5 onToggle, onRemove 함수가 바뀌지 않게 하기
+함수가 계속 만들어지는 상황을 방지하는 방법
+> 1. useState의 함수형 업데이트 기능을 사용하는 것.
+> 2. useReducer를 사용하는 것임.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### 11.8 react-vitrualized를 사용한 렌더링 최적화
+> react-virtualized를 사용하면 리스트 컴포넌트에서 스크롤되기 전에 보이지 않는 컴포넌트는 렌더링 하지 않고 크기만 차지하게끔 할 수 있음.
 
-### `yarn test`
+> yarn add react-virturalized
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
